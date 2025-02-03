@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbd9d3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.logo img{
+    max-width: 400px;
+    height: auto;
+}
+
+.logo h1{
+    font-size: 3rem;
+    color: #900000;
+    font-weight: bold;
+    margin-bottom: 0.5 rem;
+}
+
+.logo p{
+    color: #333;
+    font-size 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.forms-container{
+    display: flex;
+    background: #b45959;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.form-box{
+    width: 48%;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.divider{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80%;
+    width: 2px;
+    background: #ddd;
+}
+
+.divider span{
+    position: absolute;
+    top:50%;
+    left: -25px;
+    transform: translateY(-50%, -50%);
+    background: #fff;
+    color: #666;
+    padding: 0 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+
+}
+
+.form-box h2{
+    width: 48%;
+    text-align: center;
+}
+
+.input-group{
+    margin-bottom: 1.5rem;
+    margin-left: 3rem;
+}
+
+.input-group input{
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn{
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.login-btn{
+    background-color: #1877f2
+    color: #fff;
+}
+
+.login-btn:hover{
+    background-color: #155dbd;
+}
+
+.sign-up-btn{
+    background-color: #42b72a;
+    color: #ffb09c;
+}
+
+.forgot-link{
+    display: block;
+    margin-top: 10px;
+    color: #ffb09c;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.forgot-link:hover{
+    text-decoration: underline;
+}
