@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: url('/TSA4/bbbbb.avif') no-repeat center/cover;
+            font-family: 'Arial', sans-serif;
+        }
+        .restaurant-card {
+            background: #ffde00;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+        }
+        .restaurant-card img {
+            border-radius: 8px;
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .main-menu-btn {
+            background: #ffde00;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="text-center p-6">
+        <h1 class="text-3xl font-bold italic text-gray-300">BEST OF MERIDDEN</h1>
+        <h2 class="text-6xl font-extrabold text-white mt-2" style="font-family: 'Brush Script MT', cursive;">RESTAURANT GUIDE</h2>
+        <p class="text-md mt-2">PRODUCED BY: LOCAL MAGAZINE</p>
+    </div>
+
+    <div class="flex justify-center gap-6 flex-wrap p-6">
+        <div class="restaurant-card w-64">
+            <img src="food1.jpg" alt="Gabel Loffel">
+            <h3 class="text-black text-center mt-2 p-1 font-bold">GABEL LOFFEL</h3>
+        </div>
+
+        <div class="restaurant-card w-64">
+            <img src="food2.jpg" alt="Gary Gari">
+            <h3 class="text-black text-center mt-2 p-1 font-bold">GARY GARI</h3>
+        </div>
+
+        <div class="restaurant-card w-64">
+            <img src="food3.jpg" alt="Il Piatto">
+            <h3 class="text-black text-center mt-2 p-1 font-bold">IL PIATTO</h3>
+        </div>
+
+        <div class="restaurant-card w-64">
+            <img src="food4.jpg" alt="Pierre Platters">
+            <h3 class="text-black text-center mt-2 p-1 font-bold">PIERRE PLATTERS</h3>
+        </div>
+    </div>
+
+    <div class="text-center mt-6">
+        <button class="main-menu-btn">MAIN MENU</button>
+    </div>
+</body>
+</html>
