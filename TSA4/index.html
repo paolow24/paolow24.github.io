@@ -5,62 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            background: url('/TSA4/bbbbb.avif') no-repeat center/cover;
-            font-family: 'Arial', sans-serif;
-        }
-        .restaurant-card {
-            background: #ffde00;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
-        }
-        .restaurant-card img {
-            border-radius: 8px;
-            height: 250px;
-            width: 100%;
-            object-fit: cover;
-        }
-        .main-menu-btn {
-            background: #ffde00;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="text-white">
-    <div class="text-center p-6">
+    <div class="header-section text-left p-6">
         <h1 class="text-3xl font-bold italic text-gray-300">BEST OF MERIDDEN</h1>
         <h2 class="text-6xl font-extrabold text-white mt-2" style="font-family: 'Brush Script MT', cursive;">RESTAURANT GUIDE</h2>
         <p class="text-md mt-2">PRODUCED BY: LOCAL MAGAZINE</p>
     </div>
 
     <div class="flex justify-center gap-6 flex-wrap p-6">
-        <div class="restaurant-card w-64">
-            <img src="food1.jpg" alt="Gabel Loffel">
+        <div class="restaurant-card w-64" onclick="showInfo('Hamburger')">
+            <img src="/TSA4/burger.jpg" alt="Gabel Loffel">
             <h3 class="text-black text-center mt-2 p-1 font-bold">GABEL LOFFEL</h3>
+            <div class="hover-info">Show More Info</div>
         </div>
 
-        <div class="restaurant-card w-64">
-            <img src="food2.jpg" alt="Gary Gari">
+        <div class="restaurant-card w-64" onclick="showInfo('Roasted Chicken')">
+            <img src="/TSA4/chicken.jpg" alt="Gary Gari">
             <h3 class="text-black text-center mt-2 p-1 font-bold">GARY GARI</h3>
+            <div class="hover-info">Show More Info</div>
         </div>
 
-        <div class="restaurant-card w-64">
-            <img src="food3.jpg" alt="Il Piatto">
+        <div class="restaurant-card w-64" onclick="showInfo('Pasta')">
+            <img src="/TSA4/pasta.jpg" alt="Il Piatto">
             <h3 class="text-black text-center mt-2 p-1 font-bold">IL PIATTO</h3>
+            <div class="hover-info">Show More Info</div>
         </div>
 
-        <div class="restaurant-card w-64">
-            <img src="food4.jpg" alt="Pierre Platters">
+        <div class="restaurant-card w-64" onclick="showInfo('Steak')">
+            <img src="/TSA4/steak.jpg" alt="Pierre Platters">
             <h3 class="text-black text-center mt-2 p-1 font-bold">PIERRE PLATTERS</h3>
+            <div class="hover-info">Show More Info</div>
         </div>
     </div>
 
     <div class="text-center mt-6">
         <button class="main-menu-btn">MAIN MENU</button>
     </div>
+
+    <div id="restaurant-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center">
+        <!-- Modal Content -->
+        <div class="bg-white p-6 rounded-lg shadow-lg w-3/4 max-w-3xl relative flex">
+            <!-- Image Section -->
+            <div class="w-1/2 pr-4">
+                <img id="modal-image" src="" alt="Restaurant Image" class="rounded-lg w-full h-64 object-cover">
+            </div>
+            
+            <!-- Text Section -->
+            <div class="w-1/2">
+                <span class="close absolute top-2 right-4 text-2xl cursor-pointer">&times;</span>
+                <h2 id="modal-title" class="text-3xl font-bold text-red-600"></h2>
+                <p id="modal-address" class="mt-2 text-gray-700"></p>
+                <p id="modal-category" class="mt-2 font-semibold"></p>
+                <p id="modal-description" class="mt-4 text-gray-600"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+         const restaurantInfo = {
+        "Hamburger": {
+            title: "Gabel Loffel",
+            address: "235 Glendale Ave. Meridien City",
+            category: "Category: American",
+            description: "Experience the ultimate burger delight with our handcrafted, flame-grilled patties made from 100% premium beef, seasoned to perfection. Each burger is served on a toasted brioche bun, layered with fresh lettuce, juicy tomatoes, crunchy pickles, and melted cheese. Our house-made special sauce brings it all together, creating a mouthwatering bite that will leave you craving more. Pair it with our crispy golden fries and a chilled drink for the perfect meal!",
+            image: "/TSA4/burger.jpg"
+        },
+        "Roasted Chicken": {
+            title: "Gary Gari",
+            address: "142 River St. Meridien City",
+            category: "Category: Rotisserie",
+            description: "Our signature roasted chicken is a masterpiece of flavor and texture. Slow-roasted for hours, the chicken is infused with a medley of aromatic herbs and spices, ensuring every bite is juicy and packed with savory goodness. The skin is crisped to golden perfection, sealing in the moisture and enhancing the taste. Served with your choice of buttery mashed potatoes, roasted vegetables, or fragrant rice, this dish is a comforting classic that never disappoints!",
+            image: "/TSA4/chicken.jpg"
+        },
+        "Pasta": {
+            title: "Il Piatto",
+            address: "58 Italian Lane, Meridien City",
+            category: "Category: Italian",
+            description: "Indulge in the rich, authentic flavors of Italy with our handcrafted pasta dishes. From creamy Alfredo to robust marinara, each sauce is made fresh daily with premium ingredients like sun-ripened tomatoes, aged Parmesan cheese, and fragrant basil. Our pasta is cooked to al dente perfection, ensuring the perfect balance of chewiness and tenderness. Choose from a variety of add-ons like grilled chicken, succulent shrimp, or sautéed mushrooms to customize your meal. A true Italian delight that transports you straight to Rome!",
+            image: "/TSA4/pasta.jpg"
+        },
+        "Steak": {
+            title: "Pierre Platters",
+            address: "79 French Blvd, Meridien City",
+            category: "Category: Steakhouse",
+            description: "For the meat lovers, our perfectly grilled steaks are a dream come true. We source only the finest cuts, aged to enhance tenderness and flavor. Each steak is seasoned with our secret blend of spices and grilled to your preferred level of doneness—whether you love a juicy medium-rare or a well-seared masterpiece. Served with a side of creamy garlic mashed potatoes, buttered asparagus, and a rich peppercorn sauce, this dish is a fine dining experience on a plate!",
+            image: "/TSA4/steak.jpg"
+        }
+    };
+
+    function showInfo(foodName) {
+        const modal = document.getElementById("restaurant-modal");
+        const title = document.getElementById("modal-title");
+        const address = document.getElementById("modal-address");
+        const category = document.getElementById("modal-category");
+        const description = document.getElementById("modal-description");
+        const image = document.getElementById("modal-image");
+
+        // Set modal content
+        title.textContent = restaurantInfo[foodName]?.title || "Restaurant Name";
+        address.textContent = restaurantInfo[foodName]?.address || "Address not available";
+        category.textContent = restaurantInfo[foodName]?.category || "Category: Unknown";
+        description.textContent = restaurantInfo[foodName]?.description || "No description available.";
+        image.src = restaurantInfo[foodName]?.image || "/TSA4/default.jpg"; // Default image if not found
+
+        // Show modal
+        modal.classList.remove("hidden");
+    }
+
+    // Close modal when clicking X
+    document.querySelector(".close").addEventListener("click", function () {
+        document.getElementById("restaurant-modal").classList.add("hidden");
+    });
+
+    // Close modal when clicking outside of it
+    document.getElementById("restaurant-modal").addEventListener("click", function (e) {
+        if (e.target === this) {
+            this.classList.add("hidden");
+        }
+    });
+
+   
+    </script>
 </body>
 </html>
