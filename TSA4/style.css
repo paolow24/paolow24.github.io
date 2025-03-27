@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
 body {
+    background-image: url("/TSA4/backbackback.avif");
     background-color: black;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Playfair Display', serif;
 }
 
 .header-section {
